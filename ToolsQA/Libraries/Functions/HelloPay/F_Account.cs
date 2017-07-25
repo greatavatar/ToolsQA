@@ -49,18 +49,18 @@ namespace ToolsQA.Libraries.Functions.HelloPay
 
             
 
-            mDriver.FindElement(By.XPath("//a[text()='Email']")).Click();
+            /*mDriver.FindElement(By.XPath("//a[text()='Email']")).Click();
             mDriver.FindElement(By.XPath("//input[@id='publicinboxfield']")).SendKeys(pEmail);
-            mDriver.FindElement(By.XPath("//div[@class='input-group-btn']/button")).Click();
+            mDriver.FindElement(By.XPath("//div[@class='input-group-btn']/button")).Click();*/
 
-            //mDriver.FindElement(By.XPath("//input[@id='inboxfield']")).SendKeys(pEmail);
-            //mDriver.FindElement(By.XPath("//button[contains(text(),'Go!')]")).Click();
-            //Thread.Sleep(5000);
-
-            F_General.WaitForControlExist(mDriver, "//div[@class='someviewport']/div[1]",30);
+            mDriver.FindElement(By.XPath("//input[@id='inboxfield']")).SendKeys(pEmail);
+            mDriver.FindElement(By.XPath("//button[contains(text(),'Go!')]")).Click();
             
-            IList<IWebElement> Ilist_Address = mDriver.FindElements(By.XPath("//div[@class='someviewport']//following-sibling::div[contains(@id,'row_public')]/div[2]/div[2]/div"));
-            IList<IWebElement> Ilist_Link = mDriver.FindElements(By.XPath("//div[@class='someviewport']//following-sibling::div[contains(@id,'row_public')]/div[2]/div[5]/div"));
+            F_General.WaitForControlExist(mDriver, " //ul[@id='inboxpane']/li[1]", 30);
+           
+
+            IList<IWebElement> Ilist_Address = mDriver.FindElements(By.XPath("//ul[@id='inboxpane']//following-sibling::li/div/div[3]"));
+            IList<IWebElement> Ilist_Link = mDriver.FindElements(By.XPath("//ul[@id='inboxpane']//following-sibling::li/div/div[4]"));
             
             for (int i = 0; i < Ilist_Address.Count; i++)
             {
@@ -72,7 +72,7 @@ namespace ToolsQA.Libraries.Functions.HelloPay
             }
 
 
-            mDriver.SwitchTo().Frame("publicshowmaildivcontent");
+            mDriver.SwitchTo().Frame("msg_body");
 
             F_General.WaitForControlExist(mDriver, "//p[contains(text(),'You can also copy and paste this link into your browse')]//following-sibling::p[1]/a", 10);
             string mLink = mDriver.FindElement(By.XPath("//p[contains(text(),'You can also copy and paste this link into your browse')]//following-sibling::p[1]/a")).Text;

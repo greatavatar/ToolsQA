@@ -12,10 +12,8 @@ namespace ToolsQA.Interfaces.Lazada
 
         public static By lbl_KetQuaTimKiemCua = By.XPath("//div[@data-qa-locator='catalog-search-result-title']/h1");
         public static By lbl_SoLuongSanPhamTimThay = By.XPath("//div[@data-qa-locator='catalog-search-result-quantity']");
+        
 
-        
-        
-        
 
     }
 }

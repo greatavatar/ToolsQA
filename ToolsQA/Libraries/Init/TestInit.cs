@@ -20,6 +20,7 @@ namespace ToolsQA.Libraries.Init
         public void Testinit()
         {
             ConstantPara.driver = new FirefoxDriver();
+            //ConstantPara.driver = new InternetExplorerDriver();
             ConstantPara.driver.Manage().Window.Maximize();
             
         }

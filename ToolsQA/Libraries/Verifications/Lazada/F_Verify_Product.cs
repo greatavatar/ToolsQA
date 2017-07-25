@@ -34,7 +34,8 @@ namespace ToolsQA.Libraries.Verifications.Lazada
             }
 
 
-            mResult = mlbl_SoLuongTimThay_Ele.Text.Contains("Sản Phẩm Được Tìm Thấy");
+            //mResult = mlbl_SoLuongTimThay_Ele.Text.Contains("Sản Phẩm Được Tìm Thấy");
+            mResult = mlbl_SoLuongTimThay_Ele.Text.ToLower().Contains("sản phẩm được tìm thấy");
 
             if (mResult == false)
             {
